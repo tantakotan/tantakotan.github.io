@@ -7,13 +7,14 @@ Visit the Python site and download Python 3.5 for Windows. Be sure to install th
 
 Check your Python installation from a command prompt.
 
-'
+'''
 bash
   python --version
   Install Azure CLI 2.0 using pip.
+
 bash
   pip install --user azure-cli
-'
+'''
 
 Add %APPDATA%\PythonXY\Scripts to your PATH. Where X.Y is your Python version (for example, %APPDATA%\Python27\Scripts).5
 Run Azure CLI 2.0 from the command prompt with the 'az' command.
