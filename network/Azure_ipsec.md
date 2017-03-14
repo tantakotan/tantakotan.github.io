@@ -36,6 +36,7 @@ crypto ipsec transform-set ipsec-trans-hogehoge01VNG esp-aes 256 esp-sha-hmac
 crypto ipsec df-bit clear
 
 crypto ipsec profile ipsec-prof-hogehoge01VNG
+ set security-association lifetime kilobytes 102400000
  set transform-set ipsec-trans-hogehoge01VNG
  
 interface Tunnel1
@@ -45,7 +46,20 @@ interface Tunnel1
  tunnel source 2.2.2.2
  tunnel mode ipsec ipv4
  tunnel destination 1.1.1.1
- tunnel protection ipsec profile ipsec-prof-hogehoge01VNG
+ tunnel protection ipsec profile ipsec-prof-hogehoge01VNG isakmp-profile isakmp-hogehoge01VNG
+
+interface Dialer1
+ mtu 1454
+ ip address negotiated
+ encapsulation ppp
+ ip tcp adjust-mss 1414
+ dialer pool 1
+ dialer idle-timeout 0
+ dialer-group 1
+ ppp authentication chap callin
+ ppp chap hostname hogehogehoge@hogehoge.com
+ ppp chap password asdfasdfasdfasdf
+ ppp ipcp dns request accept
  
 ```
 
