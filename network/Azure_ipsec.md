@@ -7,6 +7,7 @@
 |gateway|vpn|
 |virutalnetwork|hogehoge01|
 |gateway subnet|192.168.0.0/24|
+|Azure network|172.16.0.0/16|
 |public IP|1.1.1.1|
 |local-address|2.2.2.2|
 |SKU|basic|
@@ -60,6 +61,9 @@ interface Dialer1
  ppp chap hostname hogehogehoge@hogehoge.com
  ppp chap password asdfasdfasdfasdf
  ppp ipcp dns request accept
+
+
+ip route 172.16.0.0 255.255.0.0 tunnel1
  
 ```
 
