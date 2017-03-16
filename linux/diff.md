@@ -31,6 +31,13 @@ vim
 <KBD>Ctrl</KBD> + <KBD>V</KBD> = Visual Block Mode = 矩形モード
 <KBD>Shift</KBD> + <KBD>I</KBD> = 矩形モード選択後は、Shiftを押さないと挿入できない。
 
+<KBD>:<KBD> = command exec mode へ移行
+s/aaaa/bbbb/gc
+"s" = 置換
+"aaaa" = 置換元
+"bbbb" = 置換先
+"g" = 同じ行内で繰り返すかどうか
+"c" = 置換するかどうかの確認
 
 ~~~
 
