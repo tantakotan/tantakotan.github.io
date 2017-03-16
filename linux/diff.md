@@ -1,6 +1,8 @@
 # DIFF
 
-```bash
+---
+aaaa
+~~~
 
 diff -y -W 200 a b
 ls -lt
@@ -17,5 +19,4 @@ z = zip
 scp -p ec2-user@hostname:<File path>
 -p = permission 
 
-
-```
+~~~
