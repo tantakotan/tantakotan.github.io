@@ -19,4 +19,6 @@ z = zip
 scp -p ec2-user@hostname:<File path>
 -p = permission 
 
+ll -l `pwd`/*
+
 ~~~
