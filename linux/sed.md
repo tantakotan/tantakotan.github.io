@@ -42,12 +42,19 @@ curl ipinfo.io | sed -n '2s/[^0-9|\.]//gp'
 ~~~
 ------------------------------------------------------------------------
 
-# sed の基本記法
+# sed の基本記法(script)
 sed -r -e "<font color=red>**s**</font>/aaaa/bbbb/<font color=blue>g</font>"<BR>
 <font color=red>**s**</font> = Substitute(置換)<BR>
 <font color=blue>**g**</font> = Global(行の内、全ての同じ文言を検索。指定しないと最初にHitしたもののみが対象になる。)<BR>
 aaaa = 置換先の文字列
 bbbb = 置換後の文字列(空白の場合、置換先の文字列を削除する。)
+
+`sed -n '2s/[^0-9]|\.]//gp'`<BR>
+-n = 出力を全て隠す<BR>
+2s = 出力の2行目を指定<BR>
+[^0-9]|\. = 数字、かつ . を抽出<BR>
+g = 行の全ての文字を置換<BR>
+p = 指定の行のみ出力する。<BR>
 
 ## デリミタ
 Substitute では、/が用いられることが多いが、実際はどんな文字でも良い。<BR>
@@ -60,4 +67,5 @@ s の次の文字がデリミタとしてみなされる。<BR>
 -n = quiet,silent (何でnなのかわからんけど...)<BR>
 -e = script<BR>
 ※ -n と -e は同居不可<BR>
+
 
