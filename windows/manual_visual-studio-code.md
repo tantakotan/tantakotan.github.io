@@ -1,3 +1,12 @@
+# Visual Studio Code の Install
+
+1. Visual Studio Code を インストールする。
+1. 「表示」⇒「拡張機能」から、markdown を検索。
+1. Instant Markdown をインストール。
+1. hogehoge.md とかでファイルを保存すると、WebBrowserが立ち上がるので、WindowsでFirewallを許可する。
+1. スゲー。
+
+
 http://sourcechord.hatenablog.com/entry/2015/12/28/143229
 
 # テキスト検索など
