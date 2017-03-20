@@ -1,4 +1,5 @@
 # functions.sh
+
 # Edit 20170319
 
 # bases variables
@@ -11,6 +12,16 @@ v_log_file="${HOME}/tantakotan_${v_date}_${v_time}.log"
 function LogInfo()
 {
         echo $1 | awk '{print "'"$(date -Is)"' [INFO]: "$0}' | tee -a ${v_log_file}
+}
+
+function LogNotice()
+{
+        echo $1 | awk '{print "'"$(date -Is)"' [NOTICE]: "$0}' | tee -a ${v_log_file}
+}
+
+function LogError()
+{
+        echo $1 | awk '{print "'"$(date -Is)"' [Error]: "$0}' | tee -a ${v_log_file}
 }
 
 # EOF
