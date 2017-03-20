@@ -1,5 +1,4 @@
 # functions.sh
-ahoahoahoahoahoa
 # Edit 20170319
 
 # bases variables
