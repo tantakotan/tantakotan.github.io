@@ -11,3 +11,7 @@ http://shellscript.sunone.me/if_and_test.html
 
 # シェルスクリプトを書くときに気をつける9箇条 - Qiita
 http://qiita.com/b4b4r07/items/9ea50f9ff94973c99ebe
+
+# サブシェル云々の話
+http://qiita.com/yyamamot/items/3a7fac6b01547d48a173
+
