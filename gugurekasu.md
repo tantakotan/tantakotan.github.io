@@ -15,3 +15,5 @@ http://qiita.com/b4b4r07/items/9ea50f9ff94973c99ebe
 # サブシェル云々の話
 http://qiita.com/yyamamot/items/3a7fac6b01547d48a173
 
+# Timezone の変更コマンド
+`ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime`
