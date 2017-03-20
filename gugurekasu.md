@@ -20,3 +20,6 @@ http://qiita.com/yyamamot/items/3a7fac6b01547d48a173
 
 # Shell Scripts の変数について($1とか$@とかのやつ)
 http://www.k4.dion.ne.jp/~mms/unix/shellscript/shell_para.html
+
+# Script の実行について
+http://shellscript.sunone.me/tutorial.html#bash-コマンドで実行する
