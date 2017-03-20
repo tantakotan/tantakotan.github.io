@@ -17,3 +17,6 @@ http://qiita.com/yyamamot/items/3a7fac6b01547d48a173
 
 # Timezone の変更コマンド
 `ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime`
+
+# Shell Scripts の変数について($1とか$@とかのやつ)
+http://www.k4.dion.ne.jp/~mms/unix/shellscript/shell_para.html
