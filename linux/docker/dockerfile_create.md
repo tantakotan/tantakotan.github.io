@@ -54,11 +54,12 @@ sudo yum -y --enablerepo=epel install docker
 
 ## 1行ずつ、うまくいったらどこかにメモ
 
+~~~
 docker run -it centos:7
 
 v_epel_url="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
 yum -y -q install "${v_epel_url}" 2>&1
 yum-config-manager --disable epel* >/dev/null 2>&1
-yum -y -q install nginx --enablerepo=epel 2>&1
+yum -y -q install nginx --enablerepo=epel >/dev/null 2>&1
 
-sed -f /etc/nginx/conf.d/default.-r -e 's/
+~~~
