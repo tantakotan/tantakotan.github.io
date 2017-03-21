@@ -21,6 +21,18 @@ sudo yum-config-manager --disable epel*
 ```
 sudo yum -y --enablerepo=epel install docker-io
 ```
+CentOS6の場合
+```
+sudo service docker start
+sudo service docker enable
+```
+CentOS7の場合
+```
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+
 ※CentOS6 は、Docker 非対応。その為、docker-io を入れる。
 
 ## Phase 2: Docker File の作成
