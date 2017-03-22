@@ -68,4 +68,25 @@ s の次の文字がデリミタとしてみなされる。<BR>
 -e = script<BR>
 ※ -n と -e は同居不可<BR>
 
+# sed による ファイルの中身の置換
+
+- 手順の確認
+
+1. `sed -r -e 's@@@g'` まで書く。これが sed 置換式の基本。
+1. 置換対象をメモ。<BR>
+`my $logtail = '/usr/local/bin/logtail';`
+1. 置換後をメモ。 <BR>
+`my $logtail = '/usr/sbin/logtail';`
+1. 置換対象を式に入れ込む。<BR>
+`sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@@g'`
+1. 置換対象をコメントアウトし、同時に日付を入れる。<BR>
+`sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\n@@g'`
+1. 置換後を追加。<BR>
+`sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy \$logtail = '"'"'/usr/sbin/logtail'"'"';@g'`
+1. 設定対象ファイルを文末に追加。<BR>
+`sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy \$logtail = '"'"'/usr/sbin/logtail'"'"';@g' /usr/share/munin/plugins/byprojects_bandwidth`
+1. 標準出力をチェック <kbd>ENTER</kbd>
+1. 問題なければ、文末に -i を付け加えて、ファイルに上書き。<BR>
+`sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy \$logtail = '"'"'/usr/sbin/logtail'"'"';@g' /usr/share/munin/plugins/byprojects_bandwidth -i`
+
 
