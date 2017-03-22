@@ -89,4 +89,23 @@ s の次の文字がデリミタとしてみなされる。<BR>
 1. 問題なければ、文末に -i を付け加えて、ファイルに上書き。<BR>
 `sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy \$logtail = '"'"'/usr/sbin/logtail'"'"';@g' /usr/share/munin/plugins/byprojects_bandwidth -i`
 
+# sed による任意の行に文字を追加する
 
+参考文献: http://www.yourownlinux.com/2015/04/sed-command-in-linux-append-and-insert-lines-to-file.html
+
+- 最終行に文字を挿入する。
+
+```
+$ sed -e '$ a hoge' lines.log 
+line 1
+line 2
+line 3
+line 4
+line 5
+line 6
+line 7
+line 8
+line 9
+line 10
+hoge
+```
