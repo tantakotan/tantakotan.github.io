@@ -111,6 +111,24 @@ sed -e '$ a \\n[nginx*]\n env.url http://localhost/nginx_status' /etc/munin/plug
 sed '/    access_log  \/var\/log\/nginx\/access.log  main;/i \    log_format munin  '"'"'$remote_addr - $remote_user $time_local "$request" '"'"'\n                      '"'"'$status $body_bytes_sent "$http_referer" '"'"'\n                      '"'"'"$http_user_agent" $request_length $body_bytes_sent'"'"';\n\n' /etc/nginx/nginx.conf
 
 ```
+## これも default.conf に設定しておくこと。server ディレクティブのところに。
+------
+        listen 127.0.0.1;
+        listen [::1]:80;
+        server_name localhost;
+        #### munin ####
+        location /nginx_status {
+            stub_status on;
+            access_log off;
+            allow 127.0.0.1;
+            allow ::1;
+            deny all;
+        }
+        #### munin ####
+------
+
+
+
 
 # 7.iptables の穴あけ
 
