@@ -16,7 +16,10 @@
 # 1. munin-node のインストール
 
 ## Munin-node の Install
-
+```
+v_epel_url="https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm"
+sudo yum -y install "${v_epel_url}"
+```
 `sudo yum -y install munin-node --enablerepo=epel`
 
 # 2. munin-node.conf の更新
