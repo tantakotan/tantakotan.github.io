@@ -132,6 +132,7 @@ sed '/    access_log  \/var\/log\/nginx\/access.log  main;/i \    log_format mun
 
 # 7.iptables の穴あけ
 
+lokkit 
 
 # 8.munin-node の自動開始設定の追加
 
