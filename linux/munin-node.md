@@ -37,7 +37,7 @@ sudo yum -y install "${v_epel_url}"
 `allow ^13\.115\.247\.215$`
 
 -- And which port(待ち受けポート) の変更<BR>
-`port 14949`
+`port 4949`
 
 # 3. munin-node/plugins の更新
 
@@ -59,16 +59,22 @@ sudo curl -LRs -o byprojects_inout_bandwidth https://raw.githubusercontent.com/m
 
 - plugins に対し、シンボリックリンクを追加
 
+`cd /etc/munin/plugins/`
+
 ```
 default:
-ln -s /usr/share/munin/plugins/nginx_request
-ln -s /usr/share/munin/plugins/nginx_status
+sudo ln -s /usr/share/munin/plugins/nginx_request
+sudo ln -s /usr/share/munin/plugins/nginx_status
 ```
 ```
 download:
-ln -s /usr/share/munin/plugins/byprojects_access
-ln -s /usr/share/munin/plugins/byprojects_inout_bandwidth
-ln -s /usr/share/munin/plugins/byprojects_bandwidth
+sudo ln -s /usr/share/munin/plugins/byprojects_access
+sudo ln -s /usr/share/munin/plugins/byprojects_inout_bandwidth
+sudo ln -s /usr/share/munin/plugins/byprojects_bandwidth
+```
+不要なシンボリックリンクを削除
+```
+ ls | grep -v -E '*byprojects*|*nginx*' | xargs rm -r
 ```
 
 # 4.plugins 用のコンポーネントのインストール
@@ -80,25 +86,23 @@ ln -s /usr/share/munin/plugins/byprojects_bandwidth
 
 - logtail の install 先の変更...の前にpluginsのバックアップ
 ```
-cp -v /usr/share/munin/plugins/byprojects_access /usr/share/munin/plugins/byprojects_access.org
-cp -v /usr/share/munin/plugins/byprojects_inout_bandwidth /usr/share/munin/plugins/byprojects_inout_bandwidth.org
-cp -v /usr/share/munin/plugins/byprojects_bandwidth /usr/share/munin/plugins/byprojects_bandwidth.org
+sudo cp -v /usr/share/munin/plugins/byprojects_access /usr/share/munin/plugins/byprojects_access.org
+sudo cp -v /usr/share/munin/plugins/byprojects_inout_bandwidth /usr/share/munin/plugins/byprojects_inout_bandwidth.org
+sudo cp -v /usr/share/munin/plugins/byprojects_bandwidth /usr/share/munin/plugins/byprojects_bandwidth.org
 ```
 
 - Plugin の中に記載されている logtail の install 先の変更
 ```
-sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy $logtail = '"'"'/usr/sbin/logtail'"'"';@g'  /usr/share/munin/plugins/byprojects_access -i
-sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy $logtail = '"'"'/usr/sbin/logtail'"'"';@g'  /usr/share/munin/plugins/byprojects_inout_bandwidth -i
-sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy $logtail = '"'"'/usr/sbin/logtail'"'"';@g'  /usr/share/munin/plugins/byprojects_bandwidth -i
+sudo sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy $logtail = '"'"'/usr/sbin/logtail'"'"';@g'  /usr/share/munin/plugins/byprojects_access -i
+sudo sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy $logtail = '"'"'/usr/sbin/logtail'"'"';@g'  /usr/share/munin/plugins/byprojects_inout_bandwidth -i
+sudo sed -r -e 's@(my \$logtail = '"'"'/usr/local/bin/logtail'"'"';)@# '"$(date +%Y%m%d)"' #\1\nmy $logtail = '"'"'/usr/sbin/logtail'"'"';@g'  /usr/share/munin/plugins/byprojects_bandwidth -i
 ```
 
 - plugin.conf の中に NGINX 用の設定追加
 
 ```
-sed -e '$ a \\n[nginx*]\n env.url http://localhost/nginx_status' /etc/munin/plugin-conf.d/munin-node -i
+sudo sed -e '$ a \\n[nginx*]\n env.url http://localhost/nginx_status' /etc/munin/plugin-conf.d/munin-node -i
 ```
-
-
 
 # 6.nginx.conf に Munin Plugin 用の設定追加
 
@@ -111,7 +115,7 @@ sed -e '$ a \\n[nginx*]\n env.url http://localhost/nginx_status' /etc/munin/plug
     access_log  /var/log/nginx/access.log  main;
 
 ```
-sed '/    access_log  \/var\/log\/nginx\/access.log  main;/i \    log_format munin  '"'"'$remote_addr - $remote_user $time_local "$request" '"'"'\n                      '"'"'$status $body_bytes_sent "$http_referer" '"'"'\n                      '"'"'"$http_user_agent" $request_length $body_bytes_sent'"'"';\n\n' /etc/nginx/nginx.conf
+sudo sed '/    access_log  \/var\/log\/nginx\/access.log  main;/i \    log_format munin  '"'"'$remote_addr - $remote_user $time_local "$request" '"'"'\n                      '"'"'$status $body_bytes_sent "$http_referer" '"'"'\n                      '"'"'"$http_user_agent" $request_length $body_bytes_sent'"'"';\n\n' /etc/nginx/nginx.conf
 
 ```
 ## これも default.conf に設定しておくこと。server ディレクティブのところに。
@@ -135,7 +139,7 @@ sed '/    access_log  \/var\/log\/nginx\/access.log  main;/i \    log_format mun
 
 # 7.iptables の穴あけ
 
-lokkit 
+sudo lokkit -p 4949:tcp
 
 # 8.munin-node の自動開始設定の追加
 
@@ -143,4 +147,7 @@ lokkit
 `chkconfig munin-node on`
 
 
+# 9.その他
+
+あとは、vhosts毎にbyprojectsの設定を入れるだけの状態になった。
 
