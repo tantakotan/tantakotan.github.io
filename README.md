@@ -10,12 +10,12 @@
 # 1. Group Structure
 
 |HOME|||
-|---|---|---|
-||OS|CentOS6|
-||OS|CentOS7|
-||OS|Windows|
-||tools||
-||memo.md||
+|---|-------|-------|
+|   |OS     |CentOS6|
+|   |       |CentOS7|
+|   |       |Windows|
+|   |tools  ||
+|   |memo.md||
 
 # 2. memo
 
