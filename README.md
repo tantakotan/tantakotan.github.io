@@ -10,14 +10,15 @@
 # 1. Group Structure
 
 |HOME|||
-|---|-------|-------|
-|   |OS     |CentOS6|
-|   |       |CentOS7|
-|   |       |Windows|
-|   |cloud  |aws    |
-|   |       |azure  |
-|   |tools  ||
-|   |memo.md||
+|----|-------|-------|
+|    |os     |CentOS6|
+|    |       |CentOS7|
+|    |       |Windows|
+|    |cloud  |aws    |
+|    |       |azure  |
+|    |network|cisco  |
+|    |tools  ||
+|    |memo.md||
 
 # 2. memo.md
 
