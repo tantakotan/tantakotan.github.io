@@ -14,6 +14,8 @@
 |   |OS     |CentOS6|
 |   |       |CentOS7|
 |   |       |Windows|
+|   |cloud  |aws    |
+|   |       |azure  |
 |   |tools  ||
 |   |memo.md||
 
