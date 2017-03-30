@@ -1,24 +1,21 @@
-# GitHub へ ナレッジ移行プロジェクト！
+# GitHub [tantakotan] How to use.
 
-[Subject]
-1. GitHubへのナレッジ移行に必要な要素分析
-1. 要素のグループ化
-1. GitHub用フォーマットを策定する。
-1. 移行！
-1. 公開！
-
-----------------
-
-# 1. GitHubへのナレッジの移行に必要な要素分析
-
-### 目的
-- 各種スクリプト、マクロを保管し、どこからでもURL叩けば使えるようにする。
-- サーバ/ネットワークに関するConfigrationのサンプルを保存しておき、自分が直感的に検索して使えるようにする。
-- コマンド系の意味や使い方を忘れないようにする。
-- 簡単なメモ置き場として。
+1. Group Structure
+1. memo
+1. tools
+1. scripts [.sh]
+1. summary
 
 
-- Markdown が使える
-- イメージもそのまま埋め込める
-- 外部公開することを前提にするも、基本的には自分の為にやる。
-- 
+# 1. Group Structure
+
+|HOME|||
+|---|---|---|
+||OS|CentOS6|
+||OS|CentOS7|
+||OS|Windows|
+||tools||
+||memo.md||
+
+# 2. memo
+
