@@ -17,3 +17,10 @@ ls -rlt
 ~~~
 r = reverse
 
+~~~
+ls -lSr
+~~~
+S = sort by file size
+
+
+
