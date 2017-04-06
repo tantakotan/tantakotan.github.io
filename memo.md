@@ -16,3 +16,7 @@ cut -d ',' -f 1 member.csv
 # 複数行を一括でコメントアウトする方法
 
 http://qiita.com/shirochan/items/174c3169344043449339
+
+# 絶対パスを表示してくれる神コマンド readlink -f <相対パス>
+
+readlink -f <相対パス>
