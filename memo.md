@@ -20,3 +20,12 @@ http://qiita.com/shirochan/items/174c3169344043449339
 # 絶対パスを表示してくれる神コマンド readlink -f <相対パス>
 
 readlink -f <相対パス>
+
+# これを解読しておく。
+```
+# hostname myconoha
+# sed -i -e '/^HOSTNAME=.*$/d' /etc/sysconfig/network
+# echo 'HOSTNAME='`hostname` >> /etc/sysconfig/network
+# sed -i -e 's/^\(127\.0\.0\.1.*\)$/\1 '`hostname`'/g' /etc/hosts
+```
+
