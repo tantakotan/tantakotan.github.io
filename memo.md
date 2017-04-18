@@ -29,3 +29,6 @@ readlink -f <相対パス>
 # sed -i -e 's/^\(127\.0\.0\.1.*\)$/\1 '`hostname`'/g' /etc/hosts
 ```
 
+# Thinclient における環境変数について考える。2017/04/18
+
+
