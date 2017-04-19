@@ -32,3 +32,4 @@ readlink -f <相対パス>
 # Thinclient におけるWindowsの開発環境について考える。2017/04/18
 
 
+# Firewalld の開け方の方針を決める。
