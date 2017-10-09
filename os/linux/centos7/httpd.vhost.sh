@@ -86,8 +86,6 @@ v_script_name="centos7/httpd.vhost.sh"
 	cp -p "${v_httpd_vhost_fqdn_conf}" "${v_httpd_vhost_fqdn_conf}${v_backup_suffix}"
 	
 	cat <<__EOD__ >"${v_httpd_vhost_fqdn_conf}"
-# Edit 20170304
-# https://github.com/initsh/initsh.github.io
 
 ## http
 NameVirtualhost *:80
