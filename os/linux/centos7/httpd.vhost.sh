@@ -10,11 +10,6 @@ v_script_name="centos7/httpd.vhost.sh"
 {
 	LogInfo "Start \"${v_script_name}\"."
 	
-	# checks
-	. <(curl -LRs "${v_github_dir}/check/centos7.sh")
-	. <(curl -LRs "${v_github_dir}/check/root.sh")
-	. <(curl -LRs "${v_github_dir}/check/args.sh")
-	
 	# install httpd
 	if ! rpm --quiet -q openssl
 	then
