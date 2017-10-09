@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Edit 20170306
-v_github_dir="raw.githubusercontent.com/tantakotan/tantakotan.github.io/master/bash"
+v_github_dir="raw.githubusercontent.com/tantakotan/tantakotan.github.io/os/linux"
 v_script_name="centos7/httpd.vhost.sh"
 
 # functions
